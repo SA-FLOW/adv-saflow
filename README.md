@@ -2,4 +2,4 @@
 
 Standalone GitHub Pages site for Saflow Advertising.
 
-Production domain: https://adv.saflow.app/
+Production domain: https://ads.saflow.app/

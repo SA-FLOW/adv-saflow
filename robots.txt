@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adv.saflow.app/sitemap.xml
+Sitemap: https://ads.saflow.app/sitemap.xml
