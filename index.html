@@ -48,6 +48,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;al
 .nav-links a:hover{color:var(--txt)}
 .nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:.65rem 1.35rem;font-size:.875rem;font-weight:700;cursor:none;border-radius:999px;text-decoration:none;transition:all .2s;letter-spacing:.02em;box-shadow:0 14px 30px rgba(0,136,122,.24)}
 .nav-cta:hover{background:linear-gradient(135deg,var(--accent-hover),var(--accent));transform:translateY(-1px)}
+.nav-toggle{display:none;width:42px;height:42px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.06);color:var(--txt);align-items:center;justify-content:center;cursor:pointer}
+.nav-toggle span{position:relative;width:18px;height:2px;background:currentColor;border-radius:999px;transition:background .2s}
+.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;border-radius:999px;transition:transform .2s,top .2s}
+.nav-toggle span::before{top:-6px}
+.nav-toggle span::after{top:6px}
+body.nav-open{overflow:hidden}
+body.nav-open .nav-toggle span{background:transparent}
+body.nav-open .nav-toggle span::before{top:0;transform:rotate(45deg)}
+body.nav-open .nav-toggle span::after{top:0;transform:rotate(-45deg)}
 .hero{min-height:100vh;display:flex;align-items:center;padding:7.5rem 5% 4.5rem;position:relative;overflow:hidden}
 .hero-noise{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,transparent 0%,black 30%,black 70%,transparent 100%)}
@@ -274,7 +283,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
 @media(max-width:1024px){.hero-inner{grid-template-columns:1fr}.hero-visual{min-height:430px;max-width:680px}.services-grid{grid-template-columns:repeat(2,1fr)}.atlas-grid,.atlas-grid.two,.atlas-grid.four,.playbook-steps,.money-graph,.pricing-intro,.service-price-grid{grid-template-columns:repeat(2,1fr)}.country-savings-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:1fr;gap:3rem}.why-left{position:static}.process-steps{grid-template-columns:repeat(3,1fr)}.process-step:nth-child(3)::after{display:none}.footer-top{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){body{cursor:auto}.cursor,.cursor-ring{display:none}nav{height:64px;padding:0 1rem}.nav-links{display:none}.nav-cta{padding:.55rem .9rem;font-size:.78rem}.nav-logo{font-size:1.05rem;white-space:normal;line-height:1.05}.section{padding:4.5rem 1.2rem}.stats-section{grid-template-columns:repeat(2,1fr);padding:3rem 1.2rem}.stat-box{padding:1.5rem}.services-grid,.atlas-grid,.atlas-grid.two,.atlas-grid.four,.playbook-steps,.comparison-grid,.money-graph,.pricing-intro,.country-savings-grid,.service-price-grid{grid-template-columns:1fr}.topics-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr}.process-step::after{display:none}.services-header{flex-direction:column;align-items:flex-start}.footer-top{grid-template-columns:1fr}.hero-sub-row{flex-direction:column;align-items:flex-start}.hero-actions{align-items:stretch;width:100%}.hero-actions a{justify-content:center;width:100%}.hero{min-height:auto;padding:6rem 1.2rem 3rem}.hero-inner{gap:2rem}.hero-copy{max-width:none}.hero-badge{width:100%;font-size:.64rem;line-height:1.3;white-space:normal}.hero-headline{font-size:clamp(2.45rem,13vw,4rem);max-width:100%}.hero-desc{font-size:.95rem}.hero-scroll{display:none}.hero-visual{min-height:360px;max-width:none}.ad-dashboard{left:4%;right:4%;top:5%;padding:16px}.metric-row{grid-template-columns:1fr 62px;gap:10px}.ad-card{padding:14px}.ad-card.search{left:4%;bottom:18%;width:175px}.ad-card.social{right:4%;bottom:2%;width:178px}.ad-card.creative{right:4%;top:0;width:165px}.money-row{grid-template-columns:64px 1fr 62px;gap:.5rem}.footer-bottom{align-items:flex-start}}
+@media(max-width:768px){body{cursor:auto}.cursor,.cursor-ring{display:none}nav{height:64px;padding:0 1rem}.nav-toggle{display:flex}.nav-links{position:fixed;left:1rem;right:1rem;top:74px;display:flex;flex-direction:column;gap:0;padding:.6rem;border:1px solid var(--border);border-radius:18px;background:rgba(33,56,61,.98);box-shadow:0 24px 70px rgba(0,0,0,.35);transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.nav-links a{padding:.85rem 1rem;border-radius:12px}.nav-links a:hover{background:rgba(255,255,255,.06)}body.nav-open .nav-links{opacity:1;pointer-events:auto;transform:translateY(0)}.nav-cta{padding:.55rem .9rem;font-size:.78rem}.nav-logo{font-size:1.05rem;white-space:normal;line-height:1.05}.section{padding:4.5rem 1.2rem}.stats-section{grid-template-columns:repeat(2,1fr);padding:3rem 1.2rem}.stat-box{padding:1.5rem}.services-grid,.atlas-grid,.atlas-grid.two,.atlas-grid.four,.playbook-steps,.comparison-grid,.money-graph,.pricing-intro,.country-savings-grid,.service-price-grid{grid-template-columns:1fr}.topics-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:1fr}.process-step::after{display:none}.services-header{flex-direction:column;align-items:flex-start}.footer-top{grid-template-columns:1fr}.hero-sub-row{flex-direction:column;align-items:flex-start}.hero-actions{align-items:stretch;width:100%}.hero-actions a{justify-content:center;width:100%}.hero{min-height:auto;padding:6rem 1.2rem 3rem}.hero-inner{gap:2rem}.hero-copy{max-width:none}.hero-badge{width:100%;font-size:.64rem;line-height:1.3;white-space:normal}.hero-headline{font-size:clamp(2.45rem,13vw,4rem);max-width:100%}.hero-desc{font-size:.95rem}.hero-scroll{display:none}.hero-visual{min-height:360px;max-width:none}.ad-dashboard{left:4%;right:4%;top:5%;padding:16px}.metric-row{grid-template-columns:1fr 62px;gap:10px}.ad-card{padding:14px}.ad-card.search{left:4%;bottom:18%;width:175px}.ad-card.social{right:4%;bottom:2%;width:178px}.ad-card.creative{right:4%;top:0;width:165px}.money-row{grid-template-columns:64px 1fr 62px;gap:.5rem}.footer-bottom{align-items:flex-start}}
 @media(max-width:480px){.nav-cta{display:none}.hero-visual{display:none}.hero-headline{font-size:clamp(2.35rem,15vw,3.5rem)}.stats-section{grid-template-columns:1fr}.money-item,.atlas-card,.service-price-card,.country-saving-card{padding:1.25rem}.price-compare-row{grid-template-columns:1fr}.price-compare-row span:last-child{text-align:left}.cta-actions a{width:100%;justify-content:center}}
 </style>
 </head>
@@ -283,6 +292,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
 <div class="cursor-ring" id="cursorRing"></div>
 <nav>
   <a href="https://saflow.app/" class="nav-logo">Sa<span>flow</span> Advertising</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
   <ul class="nav-links">
     <li><a href="#atlas">Atlas</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -301,7 +311,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
       <div class="hero-badge">Saflow Advertising · Global Marketing Powerhouse</div>
       <h1 class="hero-headline">WE BUILD<br/><span class="line-orange">CAMPAIGNS</span><br/>THAT <span class="line-outline">CONVERT</span></h1>
       <div class="hero-sub-row">
-        <p class="hero-desc">Saflow Advertising is a <strong>data-driven performance marketing agency</strong> built for global brands. We bring the precision of Indian tech talent and the ambition of world-class strategy — delivering results for clients across the <strong>USA, UK, Germany, UAE,</strong> and beyond.</p>
+        <p class="hero-desc">Saflow Advertising runs <strong>performance marketing, creative, SEO, and analytics</strong> for brands selling across the <strong>USA, UK, Germany, UAE,</strong> and beyond.</p>
         <div class="hero-actions">
           <a href="https://saflow.app/?service=advertising#contact" class="btn-primary">Start a Project <span class="arrow">↗</span></a>
           <a href="#atlas" class="btn-ghost">Explore the Atlas ↓</a>
@@ -373,17 +383,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
 <section class="atlas-section section" id="atlas">
   <div class="section-tag reveal">Cost Atlas / 26</div>
   <h2 class="section-title reveal">The economics behind<br/><em>Saflow Advertising</em></h2>
-  <p class="atlas-lead reveal">Our advertising model is built on a simple market truth from the Saflow research folder: India makes strategy, production, analytics, and operations dramatically more efficient, but paid media auctions are priced by the audience you target.</p>
+  <p class="atlas-lead reveal">Our model is simple: keep strategy, production, analytics, and daily optimization efficient while buying media in the market where your customers live.</p>
   <div class="truth-box reveal">
     <p>You can run the work from India. <span>You still buy the audience where the customer lives.</span></p>
   </div>
   <div class="comparison-grid reveal">
     <div class="comparison-head">Not magically cheaper from India</div>
     <div class="comparison-head">Genuinely cheaper from India</div>
-    <div class="comparison-cell">US-targeted Google CPC, Meta CPM, LinkedIn inventory, SaaS/legal/finance keyword bids, and global SaaS tools.</div>
-    <div class="comparison-cell good">Agency retainers, senior hourly execution, content production, design, analytics setup, landing pages, automation, and daily optimization ops.</div>
-    <div class="comparison-cell">The platform auction still sees a US buyer, US competition, and US purchasing power.</div>
-    <div class="comparison-cell good">The delivery engine becomes leaner: India talent, AI workflows, fast iteration, and follow-the-sun shipping.</div>
+    <div class="comparison-cell">US-targeted CPC, CPM, LinkedIn inventory, and high-competition keywords.</div>
+    <div class="comparison-cell good">Retainers, production, design, reporting, landing pages, and optimization ops.</div>
+    <div class="comparison-cell">Ad auctions follow the audience and competition.</div>
+    <div class="comparison-cell good">Delivery becomes leaner through India talent, AI workflows, and fast iteration.</div>
   </div>
   <div class="money-graph reveal">
     <div class="money-item">
@@ -409,10 +419,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
     </div>
   </div>
   <div class="atlas-grid four reveal" style="margin-top:2.5rem">
-    <div class="atlas-card"><div class="atlas-num">Google CPC</div><div class="atlas-name">US $5.26 vs India ~$0.24</div><p class="atlas-desc">The auction gap is real, but only when targeting Indian users. US targeting keeps US auction economics.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Meta CPM</div><div class="atlas-name">US ~$23 vs ~$6 global avg</div><p class="atlas-desc">CPM follows audience value and advertiser demand, not the campaign manager's office location.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Retainers</div><div class="atlas-name">3-4x agency cost leverage</div><p class="atlas-desc">This is where Saflow wins: lower operating cost without lowering campaign standards.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Run-rate</div><div class="atlas-name">Lower blended CAC system</div><p class="atlas-desc">Premium targeting plus efficient operations creates the actual advantage.</p></div>
+    <div class="atlas-card"><div class="atlas-num">Google CPC</div><div class="atlas-name">US $5.26 vs India ~$0.24</div><p class="atlas-desc">Cheap clicks matter only when the audience is actually in India.</p></div>
+    <div class="atlas-card"><div class="atlas-num">Meta CPM</div><div class="atlas-name">US ~$23 vs ~$6 global avg</div><p class="atlas-desc">Audience value sets the auction price.</p></div>
+    <div class="atlas-card"><div class="atlas-num">Retainers</div><div class="atlas-name">3-4x agency cost leverage</div><p class="atlas-desc">The biggest saving is operational.</p></div>
+    <div class="atlas-card"><div class="atlas-num">Run-rate</div><div class="atlas-name">Lower blended CAC system</div><p class="atlas-desc">Better ops make every campaign dollar work harder.</p></div>
   </div>
 </section>
 
@@ -421,12 +431,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
     <div>
       <div class="section-tag reveal">Country-Wise Price Difference</div>
       <h2 class="section-title reveal">What clients pay locally vs.<br/><em>what Saflow delivers</em></h2>
-      <p class="atlas-lead reveal">Most clients do not want an agency history lesson. They want to know: what will this cost, what do I save, and whether the output will still be professional. This section answers that directly.</p>
+      <p class="atlas-lead reveal">The buying question is simple: what will it cost, what do I save, and will quality stay professional?</p>
     </div>
     <div class="pricing-proof reveal">
       <strong>$88,800</strong>
       <span>possible yearly saving on one US growth stack</span>
-      <p>Example scope: social media, SEO, and Google + Meta ads management. Local agency: about $10,000/mo. Saflow: about $2,600/mo.</p>
+      <p>Example: social media, SEO, and Google + Meta ads management.</p>
     </div>
   </div>
   <div class="country-savings-grid reveal">
@@ -486,82 +496,54 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
       <div class="price-compare-row saflow"><span>Saflow packages</span><span>$500-$2,000/mo</span></div>
     </article>
   </div>
-  <p class="client-line reveal"><strong>Customer takeaway:</strong> Saflow is not positioned as "cheap." It is positioned as a smarter operating model: same platforms, same reporting discipline, faster delivery cycle, and 60-80% lower delivery cost.</p>
+  <p class="client-line reveal"><strong>Customer takeaway:</strong> same platforms, clear reporting, faster delivery, and 60-80% lower delivery cost.</p>
 </section>
 
 <section class="atlas-section alt section" id="offers">
   <div class="section-tag reveal">Offer Ladder</div>
   <h2 class="section-title reveal">From diagnostic to<br/><em>full growth retainer</em></h2>
-  <p class="atlas-lead reveal">The research folder defines a practical ladder: start small with a focused diagnostic, then move into one of three monthly execution tiers depending on stage, market, and budget.</p>
+  <p class="atlas-lead reveal">Start with a focused diagnostic, then move into the right monthly execution tier.</p>
   <div class="atlas-grid four reveal">
     <article class="atlas-card">
       <div class="atlas-num">T0</div>
       <div class="atlas-name">Founders Pilot</div>
       <div class="price-pill">$1,500 flat · 2 weeks</div>
-      <p class="atlas-desc">Audit, strategy doc, 14-day diagnostic, Loom recap, one quick-win shipped, and roadmap to retainer.</p>
+      <p class="atlas-desc">Audit, strategy, recap, one quick win, and retainer roadmap.</p>
       <ul class="atlas-list"><li>Best for unsure founders</li><li>Cash-positive discovery</li><li>Designed to convert to retainer</li></ul>
     </article>
     <article class="atlas-card">
       <div class="atlas-num">T1</div>
       <div class="atlas-name">Solo Founder</div>
       <div class="price-pill">$1,500/mo budget model</div>
-      <p class="atlas-desc">Lean US-targeted Meta tests, India creative production, lightweight tools, and enough data to validate the funnel.</p>
+      <p class="atlas-desc">Lean paid tests and creative output to validate the funnel.</p>
       <ul class="atlas-list"><li>~1k visitors target</li><li>~30 signups target</li><li>Founder-run ops</li></ul>
     </article>
     <article class="atlas-card">
       <div class="atlas-num">T2</div>
       <div class="atlas-name">Seed-Stage Growth</div>
       <div class="price-pill">$5,000/mo budget model</div>
-      <p class="atlas-desc">Recommended hybrid setup: Google + Meta, India SEO/content, creative production, micro-creator tests, and starter tooling.</p>
+      <p class="atlas-desc">Google + Meta, SEO/content, creative production, and starter tooling.</p>
       <ul class="atlas-list"><li>~5k visitors target</li><li>~200 signups target</li><li>CAC goal under $80</li></ul>
     </article>
     <article class="atlas-card">
       <div class="atlas-num">T3</div>
       <div class="atlas-name">Series A Push</div>
       <div class="price-pill">$10,000/mo budget model</div>
-      <p class="atlas-desc">Multi-channel paid push across Google, Meta, and LinkedIn with stronger content, attribution, and experimentation budgets.</p>
+      <p class="atlas-desc">Multi-channel paid push with content, attribution, and testing budget.</p>
       <ul class="atlas-list"><li>25k+ visitors target</li><li>~800 signups target</li><li>CAC goal under $120</li></ul>
     </article>
   </div>
 </section>
 
-<section class="atlas-section section" id="disciplines">
-  <div class="section-tag reveal">12 Disciplines</div>
-  <h2 class="section-title reveal">A complete map of<br/><em>digital marketing</em></h2>
-  <p class="atlas-lead reveal">The new material maps twelve disciplines. Saflow packages these into a practical growth system instead of treating them as disconnected tactics.</p>
-  <div class="atlas-grid four reveal">
-    <div class="atlas-card"><div class="atlas-num">01</div><div class="atlas-name">SEO · GEO · AEO</div><p class="atlas-desc">Organic visibility across Google, AI answers, entity search, technical SEO, content authority, and schema.</p></div>
-    <div class="atlas-card"><div class="atlas-num">02</div><div class="atlas-name">Paid Search · SEM</div><p class="atlas-desc">Google, Bing, Performance Max, Apple Search, and AI Overview placements for high-intent demand capture.</p></div>
-    <div class="atlas-card"><div class="atlas-num">03</div><div class="atlas-name">Paid Social</div><p class="atlas-desc">Meta, TikTok, YouTube Shorts, LinkedIn, X, Reddit, Pinterest, and Snap creative testing.</p></div>
-    <div class="atlas-card"><div class="atlas-num">04</div><div class="atlas-name">Content Marketing</div><p class="atlas-desc">Pillar content, programmatic SEO, video/audio, newsletter content, and repurposed distribution assets.</p></div>
-    <div class="atlas-card"><div class="atlas-num">05</div><div class="atlas-name">Email Marketing</div><p class="atlas-desc">Lifecycle flows, broadcasts, deliverability, revenue per email, and retention-led owned channels.</p></div>
-    <div class="atlas-card"><div class="atlas-num">06</div><div class="atlas-name">SMS · WhatsApp</div><p class="atlas-desc">Opt-in conversational flows, transactional updates, recovery messages, and India-friendly WhatsApp funnels.</p></div>
-    <div class="atlas-card"><div class="atlas-num">07</div><div class="atlas-name">Influencer · Creator</div><p class="atlas-desc">Micro-creator tests, partnership kits, UGC angles, and social proof engines.</p></div>
-    <div class="atlas-card"><div class="atlas-num">08</div><div class="atlas-name">Affiliate · Partner</div><p class="atlas-desc">Rewardful, PartnerStack, partner recruitment, content kits, fraud monitoring, and recurring partner ops.</p></div>
-    <div class="atlas-card"><div class="atlas-num">09</div><div class="atlas-name">CRO</div><p class="atlas-desc">Landing tests, personalization, heatmaps, checkout improvements, and conversion-rate lift roadmaps.</p></div>
-    <div class="atlas-card"><div class="atlas-num">10</div><div class="atlas-name">Marketing Analytics</div><p class="atlas-desc">GA4, server-side events, attribution, Looker dashboards, BigQuery/Snowflake readiness, and decision reporting.</p></div>
-    <div class="atlas-card"><div class="atlas-num">11</div><div class="atlas-name">Automation</div><p class="atlas-desc">n8n, Make, HubSpot/Customer.io flows, lead scoring, alerts, reporting, and workflow glue.</p></div>
-    <div class="atlas-card"><div class="atlas-num">12</div><div class="atlas-name">PR · Brand · Links</div><p class="atlas-desc">Founder-led PR, podcast tours, digital PR studies, link acquisition, and thought-leadership distribution.</p></div>
-  </div>
-  <table class="mini-table reveal">
-    <thead><tr><th>Best Saflow fit</th><th>Why it matters</th><th>Typical packaging</th></tr></thead>
-    <tbody>
-      <tr><td>SEO/GEO + Content</td><td>High AI leverage, compounding traffic, low delivery cost</td><td>SEO/GEO Engine + Content Engine</td></tr>
-      <tr><td>Paid Search + Paid Social</td><td>Immediate learning, scalable demand, creative testing feedback</td><td>Paid Performance + Creative Sprint</td></tr>
-      <tr><td>Analytics + Automation</td><td>Prevents blind spend and reduces weekly manual work</td><td>Tracking Spine + Automation Layer</td></tr>
-    </tbody>
-  </table>
-</section>
-
 <section class="atlas-section alt section" id="playbook">
   <div class="section-tag reveal">90-Day Playbook</div>
   <h2 class="section-title reveal">Foundation → Activate →<br/><em>Scale</em></h2>
-  <p class="atlas-lead reveal">The playbook from the folder becomes Saflow's campaign operating rhythm: build the infrastructure, activate paid channels with enough creative, then reallocate toward winners.</p>
+  <p class="atlas-lead reveal">Build the base, launch with enough creative, then move budget toward winners.</p>
   <div class="playbook-steps reveal">
-    <div class="playbook-step"><strong>01</strong><div class="atlas-name">Days 0-30 · Foundation</div><p class="atlas-desc">Define ICP, value props, top keywords, GA4, Meta Pixel, server-side events, landing pages, and first SEO/content assets.</p></div>
-    <div class="playbook-step"><strong>02</strong><div class="atlas-name">Days 31-60 · Activate</div><p class="atlas-desc">Launch Meta ads, Google Search, retargeting, and micro-creator outreach with a full creative inventory.</p></div>
-    <div class="playbook-step"><strong>03</strong><div class="atlas-name">Days 61-90 · Scale</div><p class="atlas-desc">Move budget to the top channels, cut anything above CAC target, add a second channel, and expand SEO output.</p></div>
-    <div class="playbook-step"><strong>04</strong><div class="atlas-name">Days 91-180 · Retain</div><p class="atlas-desc">Deliver QBRs, case studies, expansion offers, retention conversations, and producer handoff as retainers stabilize.</p></div>
+    <div class="playbook-step"><strong>01</strong><div class="atlas-name">Days 0-30 · Foundation</div><p class="atlas-desc">ICP, tracking, keywords, landing pages, and first content assets.</p></div>
+    <div class="playbook-step"><strong>02</strong><div class="atlas-name">Days 31-60 · Activate</div><p class="atlas-desc">Launch Meta, Google Search, retargeting, and creative tests.</p></div>
+    <div class="playbook-step"><strong>03</strong><div class="atlas-name">Days 61-90 · Scale</div><p class="atlas-desc">Move budget to winners and cut CAC-heavy channels.</p></div>
+    <div class="playbook-step"><strong>04</strong><div class="atlas-name">Days 91-180 · Retain</div><p class="atlas-desc">QBRs, case studies, expansion, and steady handoff.</p></div>
   </div>
   <div class="atlas-grid four reveal" style="margin-top:2.5rem">
     <div class="atlas-card"><div class="atlas-num">Watch</div><div class="atlas-name">Blended CAC</div><p class="atlas-desc">Total spend divided by new customers. The most complete growth signal.</p></div>
@@ -571,33 +553,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
   </div>
 </section>
 
-<section class="atlas-section section" id="stack">
-  <div class="section-tag reveal">AI Stack & Workflows</div>
-  <h2 class="section-title reveal">A small team with<br/><em>large-team output</em></h2>
-  <p class="atlas-lead reveal">The stack chapter is clear: a tool list is not a stack. Saflow uses named workflows: input, tool chain, human checkpoint, and output.</p>
-  <div class="atlas-grid three reveal">
-    <div class="atlas-card"><div class="atlas-num">Reasoning</div><div class="atlas-name">ChatGPT · Claude · Perplexity</div><p class="atlas-desc">Strategy briefs, research, content outlines, custom brand voice, and campaign analysis.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Production</div><div class="atlas-name">Cursor · Framer · Webflow</div><p class="atlas-desc">Landing pages, prototypes, website fixes, and campaign-specific pages shipped quickly.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Creative</div><div class="atlas-name">Canva · Midjourney · Runway</div><p class="atlas-desc">50 ad-variant prompts, visual concepts, short-form clips, and platform exports.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Outbound</div><div class="atlas-name">Apollo · Clay · Smartlead</div><p class="atlas-desc">Signals, enrichment, personalization, LinkedIn touchpoints, cold email, and pipeline routing.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Automation</div><div class="atlas-name">n8n · Make · Notion · Linear</div><p class="atlas-desc">Intake triage, reporting, alerts, project tickets, SOPs, and client operations.</p></div>
-    <div class="atlas-card"><div class="atlas-num">Analytics</div><div class="atlas-name">GA4 · Looker · PostHog</div><p class="atlas-desc">Tracking truth, weekly reporting digest, dashboard freshness, and decision-ready metrics.</p></div>
-  </div>
-  <table class="mini-table reveal">
-    <thead><tr><th>Named workflow</th><th>Chain</th><th>Output</th></tr></thead>
-    <tbody>
-      <tr><td>Content Engine</td><td>Voice memo → Claude → blog → Shorts → scheduler</td><td>1 recording becomes 12 native pieces</td></tr>
-      <tr><td>Creative Production</td><td>Brief → Claude prompts → visuals/video → Canva export</td><td>Platform-ready ad variants</td></tr>
-      <tr><td>Reporting Digest</td><td>GA4 → Looker → Claude → Loom/email</td><td>Weekly plain-English performance narrative</td></tr>
-      <tr><td>Inbound Triage</td><td>Form → n8n → Notion/Linear → welcome email</td><td>No enquiry falls through the cracks</td></tr>
-    </tbody>
-  </table>
-</section>
-
 <section class="atlas-section alt section" id="delivery">
   <div class="section-tag reveal">Delivery System</div>
   <h2 class="section-title reveal">Productized services with<br/><em>quality gates</em></h2>
-  <p class="atlas-lead reveal">The delivery chapter adds the operational backbone: five productized services, a client lifecycle, quality gates, and escalation response times.</p>
+  <p class="atlas-lead reveal">Clear packages, quality gates, and response timelines.</p>
   <div class="atlas-grid reveal">
     <article class="atlas-card"><div class="atlas-num">01</div><div class="atlas-name">Website Sprint</div><div class="price-pill">$2,500 flat · 14 days</div><p class="atlas-desc">Campaign-ready website/landing sprint with handoff, admin access, and 30-day patch warranty.</p></article>
     <article class="atlas-card"><div class="atlas-num">02</div><div class="atlas-name">SEO/GEO Engine</div><div class="price-pill">$4,500/mo</div><p class="atlas-desc">Search and AI-answer visibility through long-form content, schema, technical fixes, and authority building.</p></article>
@@ -653,17 +612,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
     </div>
   </div>
 </section>
-<section class="topics-section section" id="topics">
-  <div class="section-tag reveal">Content That Catches Eyes</div><h2 class="section-title reveal">The Ideas That Make<br/><em>Clients Come to You</em></h2>
-  <div class="topics-grid">
-    <div class="topic-card reveal"><div class="topic-icon-wrap">🔥</div><div><h4 class="topic-title">Why Your Western Agency Is Overcharging You</h4><p class="topic-desc">A direct, honest breakdown that speaks to client pain — and positions Saflow as the smarter alternative.</p></div></div>
-    <div class="topic-card reveal" style="transition-delay:.1s"><div class="topic-icon-wrap">📊</div><div><h4 class="topic-title">Real Campaign Breakdowns With Actual ROI</h4><p class="topic-desc">Show real numbers. $10K budget → $67K revenue. Proof beats any promise.</p></div></div>
-    <div class="topic-card reveal" style="transition-delay:.1s"><div class="topic-icon-wrap">🌏</div><div><h4 class="topic-title">Mistakes Foreign Brands Make Entering India</h4><p class="topic-desc">Insider knowledge that positions Saflow as the expert guide — attracting inbound from global companies.</p></div></div>
-    <div class="topic-card reveal" style="transition-delay:.2s"><div class="topic-icon-wrap">🤖</div><div><h4 class="topic-title">What's Actually Working in Paid Ads This Month</h4><p class="topic-desc">Real-time trend breakdowns signal that we're current, agile, and always ahead of the algorithm.</p></div></div>
-    <div class="topic-card reveal" style="transition-delay:.2s"><div class="topic-icon-wrap">💰</div><div><h4 class="topic-title">Radical Transparency: Our Pricing, Explained</h4><p class="topic-desc">Posting transparent pricing builds instant trust. It filters bad-fit clients and attracts serious buyers.</p></div></div>
-    <div class="topic-card reveal" style="transition-delay:.3s"><div class="topic-icon-wrap">⚡</div><div><h4 class="topic-title">How We Deliver Results in 48 Hours</h4><p class="topic-desc">Behind-the-scenes process content that showcases our speed, workflow, and relentless execution.</p></div></div>
-  </div>
-</section>
 <section class="cta-section" id="contact">
   <div class="cta-glow"></div><h2 class="cta-headline reveal">READY TO<br/><span class="line2">GROW GLOBAL?</span></h2>
   <p class="cta-sub reveal">Let's build something that makes your competitors uncomfortable.</p>
@@ -685,6 +633,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:4rem 5% 2
   <div class="footer-bottom"><p class="footer-copy">© 2026 Saflow. All rights reserved. Built in India for the world.</p><div class="footer-badge">Crafted with precision · <span>Fuelled by results</span></div></div>
 </footer>
 <script>
+const navToggle=document.getElementById('navToggle');
+const navLinks=document.querySelector('.nav-links');
+if(navToggle&&navLinks){
+  navToggle.addEventListener('click',()=>{
+    const open=document.body.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    document.body.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
+}
 const cursor=document.getElementById('cursor');const ring=document.getElementById('cursorRing');let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(cursor){cursor.style.left=mx+'px';cursor.style.top=my+'px'}});
 function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;if(ring){ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px'}requestAnimationFrame(animRing)}animRing();
