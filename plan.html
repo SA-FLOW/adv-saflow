@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Plan — Saflow Advertising</title>
+<meta name="description" content="Build your custom growth plan. Pick a tier from Spark to Enterprise, see live market-rate benchmarks across regions and channels, and lock in your engagement."/>
+<meta property="og:title" content="Plan — Saflow Advertising"/>
+<meta property="og:description" content="Pick a package. See the market rate. Negotiate from facts. Multiple tiers from solo founders to Fortune 500."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ads.saflow.app/plan.html"/>
+<meta property="og:image" content="https://ads.saflow.app/og-image.png"/>
+<meta name="theme-color" content="#21383D"/>
+<link rel="canonical" href="https://ads.saflow.app/plan.html"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Sa<span>flow</span> Advertising</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="plan.html">Plan</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="playbook.html">Playbook</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a Free Audit →</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80" alt="Strategic growth planning"/>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">Build Your Growth Plan</div>
+    <h1 class="page-hero-title">Pick a package.<br/>See the market rate.<br/><em>Negotiate from facts.</em></h1>
+    <p class="page-hero-desc">Five tiers from solo founders to Fortune 500. Every number on this page is an industry benchmark you can verify. Build your plan, see your annual savings, and lock it in — in under 5 minutes.</p>
+    <div class="hero-actions" style="margin-top:1.75rem;flex-wrap:wrap">
+      <a href="#packages" class="btn-primary">See Packages <span>↓</span></a>
+      <a href="saflow-pricing-booklet.pdf" download class="btn-primary" id="downloadPdfBtn" style="background:linear-gradient(135deg,#FFCCBC,#ffae8b);color:#21383D">Download Pricing Booklet (PDF) <span>⬇</span></a>
+      <a href="#builder" class="btn-ghost">Try the Plan Builder ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN BUILDER -->
+<section class="atlas-section section" id="builder">
+  <div class="section-tag reveal">Plan Builder</div>
+  <h2 class="section-title reveal">Build it in <em>4 picks.</em></h2>
+  <p class="atlas-lead reveal">Tell us your stage, where your buyers are, what channels you need, and your ad spend. We'll recommend the tier, show the market rate for the same scope, and surface your annual savings in real time.</p>
+
+  <div class="plan-builder reveal" id="planBuilder">
+    <div class="plan-inputs">
+      <!-- Stage -->
+      <div class="plan-group">
+        <div class="plan-group-label">Company Stage</div>
+        <div class="plan-chip-row">
+          <button type="button" class="plan-chip" data-group="stage" data-value="startup">Startup</button>
+          <button type="button" class="plan-chip active" data-group="stage" data-value="smb">SMB</button>
+          <button type="button" class="plan-chip" data-group="stage" data-value="mid">Mid-Market</button>
+          <button type="button" class="plan-chip" data-group="stage" data-value="ent">Enterprise</button>
+        </div>
+        <div class="plan-group-hint">Drives the recommended package and assumed CAC band.</div>
+      </div>
+
+      <!-- Region -->
+      <div class="plan-group">
+        <div class="plan-group-label">Region of Buyers</div>
+        <div class="plan-chip-row">
+          <button type="button" class="plan-chip active" data-group="region" data-value="usa">🇺🇸 USA</button>
+          <button type="button" class="plan-chip" data-group="region" data-value="uk">🇬🇧 UK</button>
+          <button type="button" class="plan-chip" data-group="region" data-value="eu">🇩🇪 EU</button>
+          <button type="button" class="plan-chip" data-group="region" data-value="uae">🇦🇪 UAE</button>
+          <button type="button" class="plan-chip" data-group="region" data-value="aus">🇦🇺 Australia</button>
+          <button type="button" class="plan-chip" data-group="region" data-value="ind">🇮🇳 India</button>
+        </div>
+        <div class="plan-group-hint">Sets the local agency rate we benchmark Saflow against.</div>
+      </div>
+
+      <!-- Channels (multi-select) -->
+      <div class="plan-group">
+        <div class="plan-group-label">Channels Needed <small>(pick any)</small></div>
+        <div class="plan-chip-row">
+          <button type="button" class="plan-chip active" data-group="channels" data-value="google">Google Ads</button>
+          <button type="button" class="plan-chip active" data-group="channels" data-value="meta">Meta Ads</button>
+          <button type="button" class="plan-chip" data-group="channels" data-value="seo">SEO</button>
+          <button type="button" class="plan-chip" data-group="channels" data-value="creative">Creative</button>
+          <button type="button" class="plan-chip" data-group="channels" data-value="analytics">Analytics</button>
+          <button type="button" class="plan-chip" data-group="channels" data-value="brand">Brand</button>
+          <button type="button" class="plan-chip" data-group="channels" data-value="lifecycle">Lifecycle</button>
+        </div>
+        <div class="plan-group-hint">Each channel adds estimated monthly hours to the workload.</div>
+      </div>
+
+      <!-- Spend -->
+      <div class="plan-group">
+        <div class="plan-group-label">Monthly Ad Spend <small>(USD · $100 → $100k · exponential)</small></div>
+        <div class="plan-spend-control">
+          <input type="range" class="plan-spend" id="planSpend" min="0" max="1000" step="1" value="500"/>
+          <div class="plan-spend-row">
+            <div class="plan-spend-readout"><span id="planSpendVal">$10,000</span> / mo</div>
+            <div class="plan-spend-input-wrap">
+              <span class="plan-spend-prefix">$</span>
+              <input type="number" class="plan-spend-input" id="planSpendInput" min="100" max="100000" step="100" value="10000"/>
+              <span class="plan-spend-suffix">/ mo</span>
+            </div>
+          </div>
+        </div>
+        <div class="plan-spend-presets">
+          <button type="button" class="plan-preset" data-spend="100">$100</button>
+          <button type="button" class="plan-preset" data-spend="500">$500</button>
+          <button type="button" class="plan-preset" data-spend="2000">$2k</button>
+          <button type="button" class="plan-preset" data-spend="10000">$10k</button>
+          <button type="button" class="plan-preset" data-spend="25000">$25k</button>
+          <button type="button" class="plan-preset" data-spend="50000">$50k</button>
+          <button type="button" class="plan-preset" data-spend="100000">$100k</button>
+        </div>
+        <div class="plan-group-hint">Slider scales exponentially — $100→$10k on the left half, $10k→$100k on the right. Type any exact amount in the box.</div>
+      </div>
+    </div>
+
+    <!-- Output card -->
+    <aside class="plan-output" id="planOutput">
+      <div class="plan-output-tag">Recommended</div>
+      <div class="plan-output-tier" id="poTier">Growth</div>
+      <div class="plan-output-why" id="poWhy">SMBs spending $50k–$200k/mo with 2–4 active channels.</div>
+
+      <div class="plan-output-row">
+        <span>Saflow monthly fee</span>
+        <strong id="poSaflow">$6,500</strong>
+      </div>
+      <div class="plan-output-row">
+        <span>Local agency equivalent</span>
+        <strong id="poMarket">$22,500</strong>
+      </div>
+      <div class="plan-output-row plan-output-savings">
+        <span>You save</span>
+        <strong id="poSavings">$192,000<small>/year</small></strong>
+      </div>
+      <div class="plan-output-row">
+        <span>Est. payback</span>
+        <strong id="poPayback">4.5 months</strong>
+      </div>
+      <div class="plan-output-insight" id="poInsight" style="display:none"></div>
+      <a class="btn-primary plan-output-cta" id="poCta" href="contact.html">Lock This Plan <span>↗</span></a>
+      <div class="plan-output-fineprint">Estimates use Saflow client medians. Final scope quoted after a 30-min call.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- PACKAGE TIERS -->
+<section class="atlas-section alt section" id="packages">
+  <div class="section-tag reveal">Packages</div>
+  <h2 class="section-title reveal">Five tiers, from solo founders<br/>to <em>Fortune 500</em>.</h2>
+  <p class="atlas-lead reveal">Pick the tier that matches where you are. Move up as you scale — no rewrites, no re-onboarding, no penalty.</p>
+
+  <div class="tier-grid tier-grid-six reveal">
+    <article class="tier-card" data-tier="lite">
+      <div class="tier-name">Lite</div>
+      <div class="tier-best">Indie hackers, side-projects</div>
+      <div class="tier-price"><span class="tier-currency">$</span>300<small>/mo</small></div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>1 channel, light setup</li>
+        <li>~8 hours/mo</li>
+        <li>Monthly digest</li>
+        <li>Async support only</li>
+        <li>Annual discount available</li>
+      </ul>
+      <div class="tier-sla">SLA: 5-day response</div>
+      <a href="contact.html?tier=lite" class="tier-cta">Pick Lite →</a>
+    </article>
+
+    <article class="tier-card" data-tier="spark">
+      <div class="tier-name">Spark</div>
+      <div class="tier-best">Solo founders, pre-PMF</div>
+      <div class="tier-price"><span class="tier-currency">$</span>1,500<small>/mo</small></div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>1 channel + analytics</li>
+        <li>~25 hours/mo</li>
+        <li>Bi-weekly reporting</li>
+        <li>Email support</li>
+        <li>Single PoC</li>
+      </ul>
+      <div class="tier-sla">SLA: 72h response</div>
+      <a href="contact.html?tier=spark" class="tier-cta">Pick Spark →</a>
+    </article>
+
+    <article class="tier-card" data-tier="launch">
+      <div class="tier-name">Launch</div>
+      <div class="tier-best">Early-stage, &lt;$50k/mo spend</div>
+      <div class="tier-price"><span class="tier-currency">$</span>3,500<small>/mo</small></div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>2 channels + creative</li>
+        <li>Analytics dashboard</li>
+        <li>~50 hours/mo</li>
+        <li>Weekly reporting</li>
+        <li>Slack channel</li>
+      </ul>
+      <div class="tier-sla">SLA: 48h response</div>
+      <a href="contact.html?tier=launch" class="tier-cta">Pick Launch →</a>
+    </article>
+
+    <article class="tier-card popular-tier" data-tier="growth">
+      <div class="tier-ribbon">Most Popular</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-best">SMB, $50k–$200k/mo spend</div>
+      <div class="tier-price"><span class="tier-currency">$</span>6,500<small>/mo</small></div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>3 channels + creative</li>
+        <li>Monthly strategy call</li>
+        <li>~90 hours/mo</li>
+        <li>Live Looker dashboard</li>
+        <li>CRO + landing pages</li>
+      </ul>
+      <div class="tier-sla">SLA: 24h response</div>
+      <a href="contact.html?tier=growth" class="tier-cta">Pick Growth →</a>
+    </article>
+
+    <article class="tier-card" data-tier="scale">
+      <div class="tier-name">Scale</div>
+      <div class="tier-best">Mid-market, $200k–$1M/mo</div>
+      <div class="tier-price"><span class="tier-currency">$</span>12,000<small>/mo</small></div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>All channels covered</li>
+        <li>Dedicated PM</li>
+        <li>~160 hours/mo</li>
+        <li>Bi-weekly exec review</li>
+        <li>Multi-region creative</li>
+      </ul>
+      <div class="tier-sla">SLA: 12h response</div>
+      <a href="contact.html?tier=scale" class="tier-cta">Pick Scale →</a>
+    </article>
+
+    <article class="tier-card" data-tier="ent">
+      <div class="tier-name">Enterprise</div>
+      <div class="tier-best">Fortune 500, $1M+/mo</div>
+      <div class="tier-price">Custom</div>
+      <div class="tier-divider"></div>
+      <ul class="tier-list">
+        <li>Embedded team</li>
+        <li>Weekly QBR + roadmap</li>
+        <li>250+ hours/mo</li>
+        <li>Custom SLA &amp; legal</li>
+        <li>Multi-region rollout</li>
+      </ul>
+      <div class="tier-sla">SLA: 4h response · Bespoke</div>
+      <a href="contact.html?tier=enterprise" class="tier-cta">Talk to Us →</a>
+    </article>
+  </div>
+</section>
+
+<!-- MARKET REALITY (a) — Agency rates by region -->
+<section class="client-pricing section" id="market-rates">
+  <div class="section-tag reveal">Market Reality · Agency Rates</div>
+  <h2 class="section-title reveal">What local agencies charge,<br/><em>region by region.</em></h2>
+  <p class="atlas-lead reveal">Public market data — Clutch.co rate cards (2025), PayScale UK (2024), Entasher UAE (2025). Saflow rate is the same blended hourly across all engagements.</p>
+  <div class="country-savings-grid six-col reveal">
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">United States</div><div class="country-flag">🇺🇸</div></div>
+      <div class="country-rate">$100–$150/hr<small>Clutch.co 2025</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Saves 70–80%</div>
+      <div class="country-bar"><span style="width:78%"></span></div>
+    </article>
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">United Kingdom</div><div class="country-flag">🇬🇧</div></div>
+      <div class="country-rate">£44–£97/hr<small>~$55–$120 USD · PayScale 2024</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Saves 60–75%</div>
+      <div class="country-bar"><span style="width:68%"></span></div>
+    </article>
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">Germany</div><div class="country-flag">🇩🇪</div></div>
+      <div class="country-rate">€50–€99/hr<small>~$55–$108 USD · Clutch 2025</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Saves 60–72%</div>
+      <div class="country-bar"><span style="width:65%"></span></div>
+    </article>
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">UAE / Dubai</div><div class="country-flag">🇦🇪</div></div>
+      <div class="country-rate">AED 300–520/hr<small>~$80–$140 USD · Entasher 2025</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Saves 70–78%</div>
+      <div class="country-bar"><span style="width:73%"></span></div>
+    </article>
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">Australia</div><div class="country-flag">🇦🇺</div></div>
+      <div class="country-rate">AUD 200–380/hr<small>~$130–$250 USD · Clutch 2025</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Saves 80–88%</div>
+      <div class="country-bar"><span style="width:84%"></span></div>
+    </article>
+    <article class="country-saving-card">
+      <div class="country-top"><div class="country-name">India</div><div class="country-flag">🇮🇳</div></div>
+      <div class="country-rate">₹1,200–₹3,500/hr<small>~$15–$45 USD · Clutch 2025</small></div>
+      <div class="saflow-rate">$20–$35/hr Saflow</div>
+      <div class="save-chip">Comparable rates · Global delivery</div>
+      <div class="country-bar"><span style="width:18%"></span></div>
+    </article>
+  </div>
+</section>
+
+<!-- MARKET REALITY (b) — Channel benchmarks -->
+<section class="atlas-section section" id="channel-benchmarks">
+  <div class="section-tag reveal">Market Reality · Channel Benchmarks</div>
+  <h2 class="section-title reveal">Channel auction prices<br/><em>by region &amp; quartile.</em></h2>
+  <p class="atlas-lead reveal">When a vendor says "we'll get you cheaper clicks," ask which auction. Channel prices are set by audience location and competition — not by the agency.</p>
+  <table class="mini-table reveal">
+    <thead>
+      <tr>
+        <th>Channel · Metric</th>
+        <th>Industry Avg (US)</th>
+        <th>Top Quartile (US)</th>
+        <th>Saflow Client Median</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Google Ads — CPC</td><td>$5.26</td><td>$2.12</td><td>$1.85</td></tr>
+      <tr><td>Meta Ads — CPM</td><td>$7.47</td><td>$5.50</td><td>$4.80</td></tr>
+      <tr><td>LinkedIn — CPC</td><td>$7.00</td><td>$4.50</td><td>$3.80</td></tr>
+      <tr><td>Programmatic — CPM</td><td>$5.82</td><td>$3.40</td><td>$2.80</td></tr>
+      <tr><td>TikTok — CPM</td><td>$9.16</td><td>$4.67</td><td>$4.10</td></tr>
+      <tr><td>YouTube — CPV</td><td>$0.025</td><td>$0.015</td><td>$0.012</td></tr>
+    </tbody>
+  </table>
+  <p class="client-line reveal" style="margin-top:1.25rem"><strong>Sources:</strong> WordStream 2025 (Google), WebFX &amp; Gupta Media 2025 (Meta), Huble 2025 (LinkedIn), Growth Channel 2024-25 (Programmatic), Varos &amp; Triple Whale 2025 (TikTok), Awisee 2025 (YouTube). Saflow column = client cohort median.</p>
+</section>
+
+<!-- MARKET REALITY (c) — ROI / Payback ranges -->
+<section class="atlas-section alt section" id="roi-bands">
+  <div class="section-tag reveal">Market Reality · ROI Math</div>
+  <h2 class="section-title reveal">The numbers<br/><em>your CFO wants.</em></h2>
+  <p class="atlas-lead reveal">Three ranges every growth conversation should anchor on. Use them to pressure-test any agency proposal — including ours.</p>
+  <div class="atlas-grid reveal">
+    <article class="atlas-card">
+      <div class="atlas-num">CAC by Segment</div>
+      <div class="atlas-name">$10 → $14,774</div>
+      <p class="atlas-desc"><strong>E-commerce:</strong> $10–$50 · <strong>SMB SaaS:</strong> ~$702 median · <strong>Mid-market SaaS:</strong> $1.4k–$5.3k · <strong>Enterprise SaaS:</strong> $2.2k–$14.7k (vertical-dependent).</p>
+      <p class="atlas-desc" style="margin-top:.6rem;font-size:.78rem;opacity:.7"><strong>Source:</strong> First Page Sage B2B SaaS CAC Report 2024 · Genesys Growth 2025</p>
+    </article>
+    <article class="atlas-card">
+      <div class="atlas-num">CAC Payback</div>
+      <div class="atlas-name">1 → 31 months</div>
+      <p class="atlas-desc"><strong>E-commerce:</strong> 4–10 mo · <strong>SMB SaaS:</strong> 1–7 mo · <strong>Mid SaaS:</strong> 8–19 mo · <strong>Enterprise SaaS:</strong> 11–31 mo. Healthy SaaS overall: ≤12–15 months.</p>
+      <p class="atlas-desc" style="margin-top:.6rem;font-size:.78rem;opacity:.7"><strong>Source:</strong> First Page Sage SaaS Payback Benchmarks 2025 · Bantrr 2024</p>
+    </article>
+    <article class="atlas-card">
+      <div class="atlas-num">LTV : CAC</div>
+      <div class="atlas-name">3:1 → 5:1</div>
+      <p class="atlas-desc"><strong>Healthy minimum:</strong> 3:1 · <strong>Optimal zone:</strong> 3:1 to 5:1 · <strong>Above 8:1:</strong> you're under-investing — leaving market share on the table for a competitor to take.</p>
+      <p class="atlas-desc" style="margin-top:.6rem;font-size:.78rem;opacity:.7"><strong>Source:</strong> Bessemer Venture Partners · OpenView SaaS Benchmarks 2024-25</p>
+    </article>
+  </div>
+</section>
+
+<!-- 30/60/90 ENGAGEMENT PLAN -->
+<section class="atlas-section section" id="engagement">
+  <div class="section-tag reveal">Engagement</div>
+  <h2 class="section-title reveal">Your first <em>90 days,</em><br/>phase by phase.</h2>
+  <p class="atlas-lead reveal">Same proven cadence on every tier. Bigger tiers get more parallel workstreams and faster cycles, but the structure is identical so you always know what's happening.</p>
+  <div class="atlas-grid reveal">
+    <article class="atlas-card">
+      <div class="atlas-num">Days 0–30</div>
+      <div class="atlas-name">Foundation</div>
+      <p class="atlas-desc">ICP workshop · GA4 + conversion tracking audit · keyword + intent map · landing page audit · creative briefs.</p>
+      <ul class="atlas-list" style="margin-top:1.1rem">
+        <li>Target: tracking 100% accurate by Day 14</li>
+        <li>Target: 4–6 ad creatives ready by Day 28</li>
+        <li>Tiers Spark+ get this; Growth+ adds CRO sprint</li>
+      </ul>
+    </article>
+    <article class="atlas-card">
+      <div class="atlas-num">Days 31–60</div>
+      <div class="atlas-name">Activate</div>
+      <p class="atlas-desc">Launch Meta + Google · retargeting pixel + audiences · A/B test 4–6 hooks per channel · first SEO content wave · weekly digest.</p>
+      <ul class="atlas-list" style="margin-top:1.1rem">
+        <li>Target: first paid traffic live by Day 35</li>
+        <li>Target: CAC baseline established by Day 50</li>
+        <li>Scale+ tiers add lifecycle and programmatic</li>
+      </ul>
+    </article>
+    <article class="atlas-card">
+      <div class="atlas-num">Days 61–90</div>
+      <div class="atlas-name">Scale</div>
+      <p class="atlas-desc">Reallocate budget to top 2–3 winners · iterate winning creative angles · CRO + bid tuning · lookalike expansion · Day-60 NPS pulse.</p>
+      <ul class="atlas-list" style="margin-top:1.1rem">
+        <li>Target: 20–35% CAC reduction vs Day 30 baseline</li>
+        <li>Target: payback period validated</li>
+        <li>Enterprise gets Day 75 strategic exec review</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ROI PROJECTION -->
+<section class="client-pricing section" id="roi-projection">
+  <div class="section-tag reveal">Projected Outcome</div>
+  <h2 class="section-title reveal">What your spend<br/><em>could become.</em></h2>
+  <p class="atlas-lead reveal">Updates with the Plan Builder above. Numbers use Saflow client medians for the selected stage and channel mix — illustrative, not a guarantee.</p>
+  <div class="money-graph reveal" id="roiOutput">
+    <div class="money-item">
+      <div class="money-label"><strong>Annual Ad Spend</strong><span>Same budget</span></div>
+      <div class="money-bars">
+        <div class="money-row"><span>Current</span><div class="money-track"><span class="money-fill" style="width:100%"></span></div><span class="money-price" id="roiSpend">$960k</span></div>
+        <div class="money-row"><span>Saflow</span><div class="money-track"><span class="money-fill low" style="width:100%"></span></div><span class="money-price" id="roiSpend2">$960k</span></div>
+      </div>
+    </div>
+    <div class="money-item">
+      <div class="money-label"><strong>Blended CAC</strong><span>Per customer</span></div>
+      <div class="money-bars">
+        <div class="money-row"><span>Today</span><div class="money-track"><span class="money-fill" style="width:100%"></span></div><span class="money-price" id="roiCacOld">$180</span></div>
+        <div class="money-row"><span>Projected</span><div class="money-track"><span class="money-fill low" style="width:72%"></span></div><span class="money-price" id="roiCacNew">$130</span></div>
+      </div>
+    </div>
+    <div class="money-item">
+      <div class="money-label"><strong>New Customers</strong><span>Annual</span></div>
+      <div class="money-bars">
+        <div class="money-row"><span>Today</span><div class="money-track"><span class="money-fill" style="width:72%"></span></div><span class="money-price" id="roiCustOld">5,333</span></div>
+        <div class="money-row"><span>Projected</span><div class="money-track"><span class="money-fill low" style="width:100%"></span></div><span class="money-price" id="roiCustNew">7,385</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="client-line reveal"><strong>Owner takeaway:</strong> at the same media budget, Saflow targets a 25–35% CAC reduction within 90 days through CRO, creative iteration, and bid efficiency. Same spend, more customers.</p>
+</section>
+
+<!-- FAQ -->
+<section class="atlas-section alt section" id="faq">
+  <div class="section-tag reveal">Negotiation FAQ</div>
+  <h2 class="section-title reveal">Every objection, <em>answered.</em></h2>
+  <p class="atlas-lead reveal">Use this section in the call. Open the relevant question, share the answer, move on. Built for honesty — not sales theatre.</p>
+  <div class="faq-list reveal">
+    <details class="faq-item">
+      <summary><span>What if my budget is below Spark ($1,500/mo)?</span><span class="faq-chev">＋</span></summary>
+      <p>We do 2-week diagnostic sprints at $1,500 flat — audit, strategy, one quick win, and a roadmap. Most diagnostics convert into a Spark or Launch retainer once we've proven a small win.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>How are you cheaper without being lower quality?</span><span class="faq-chev">＋</span></summary>
+      <p>Three reasons: (1) India-based delivery means $20–$35/hr blended cost vs $75–$150/hr in NYC/SF; (2) productized workflows + AI tooling make our hours more leveraged; (3) you keep paying market rate for the ad auction itself — only the agency layer is leaner.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can we start with just one channel?</span><span class="faq-chev">＋</span></summary>
+      <p>Yes — Spark is exactly that. Single channel + analytics + tracking. Most clients add a second channel by Month 3 once they see the first one's CAC stabilise.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you work with our existing tech stack?</span><span class="faq-chev">＋</span></summary>
+      <p>Standard yes: GA4, GTM, Looker Studio, Segment, HubSpot, Salesforce, Klaviyo, Customer.io, Mixpanel, Amplitude, Shopify, WooCommerce, Webflow, WordPress, Framer. If you're on something niche, we'll integrate or recommend a swap with cost trade-offs documented.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>What's the contract length?</span><span class="faq-chev">＋</span></summary>
+      <p>Month-to-month after a 90-day initial term (so we can complete Foundation → Activate → Scale without you bailing on Day 45 when results are still warming up). Enterprise tiers can negotiate annual with quarterly performance reviews.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>How do you measure success?</span><span class="faq-chev">＋</span></summary>
+      <p>Blended CAC (the only number that matters), CAC payback period, and a tier-specific KPI tree we agree on in Week 1. Vanity metrics (impressions, reach, CTR alone) are for context, never for billing.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>Who owns the ad accounts?</span><span class="faq-chev">＋</span></summary>
+      <p>You. Always. Accounts are created under your business name, billed to your card, and stay yours if we part ways. We get admin access; you get owner.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>What happens if we want to leave?</span><span class="faq-chev">＋</span></summary>
+      <p>30-day notice after the initial 90-day term. We hand over: tracking docs, audience lists, creative library, dashboards, SOPs, and a 1-hour handoff call with whoever picks it up. Zero hostage data.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>Do you do white-label for other agencies?</span><span class="faq-chev">＋</span></summary>
+      <p>Yes — Scale and Enterprise tiers only. We become your unbranded delivery layer. Pricing is the same; deliverables are sent to your team to forward.</p>
+    </details>
+    <details class="faq-item">
+      <summary><span>Can we pay in INR / EUR / GBP?</span><span class="faq-chev">＋</span></summary>
+      <p>USD is default. INR (with local invoicing), EUR, GBP, AED, AUD all supported on Growth+ tiers. Enterprise gets multi-entity billing if your finance team needs it.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2 class="cta-headline reveal">BUILD YOUR PLAN<br/><span class="line2">IN 15 MINUTES</span></h2>
+  <p class="cta-sub reveal">Submit your selection. We'll come back with a tailored proposal — scope, milestones, and pricing — in under 24 hours.</p>
+  <div class="cta-actions reveal">
+    <a href="contact.html" class="btn-big btn-big-primary">Get a Custom Proposal ↗</a>
+    <a href="pricing.html" class="btn-big btn-big-ghost">See Country Pricing</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Sa<span>flow</span></div>
+      <p class="footer-brand-desc">India's global performance marketing agency. Measurable growth for brands across 14+ countries.</p>
+      <div class="footer-socials"><a href="#" class="social-btn">in</a><a href="#" class="social-btn">tw</a><a href="#" class="social-btn">ig</a><a href="#" class="social-btn">yt</a></div>
+    </div>
+    <div><h4 class="footer-col-title">Services</h4><ul class="footer-links">
+      <li><a href="services.html">Performance Marketing</a></li><li><a href="services.html">SEO &amp; Content</a></li>
+      <li><a href="services.html">Creative Production</a></li><li><a href="services.html">Analytics &amp; Data</a></li>
+      <li><a href="services.html">Brand Strategy</a></li><li><a href="services.html">India Market Entry</a></li>
+    </ul></div>
+    <div><h4 class="footer-col-title">Company</h4><ul class="footer-links">
+      <li><a href="https://saflow.app/">About Saflow</a></li><li><a href="playbook.html">Our Playbook</a></li>
+      <li><a href="plan.html">Plan Builder</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div><h4 class="footer-col-title">Markets</h4><ul class="footer-links">
+      <li><a href="index.html#global">USA &amp; Canada</a></li><li><a href="index.html#global">UK &amp; Europe</a></li>
+      <li><a href="index.html#global">Middle East &amp; UAE</a></li><li><a href="index.html#global">Australia &amp; APAC</a></li>
+      <li><a href="index.html#global">Indian Market</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Saflow. All rights reserved. Built in India for the world.</p>
+    <div class="footer-badge">Crafted with precision · <span>Fuelled by results</span></div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
