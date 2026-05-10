@@ -113,10 +113,10 @@
     const tierHours = { lite:8,    spark:25,   launch:50,   growth:90,   scale:160,   ent:280 };
     const tierLabel = { lite:'Lite', spark:'Spark', launch:'Launch', growth:'Growth', scale:'Scale', ent:'Enterprise' };
     const tierWhy = {
-      lite:'Side-projects, indie hackers — $100–$2k/mo ad spend, 1 channel.',
+      lite:'Side-projects, indie hackers — $300–$1.2k/mo ad spend, 1 channel.',
       spark:'Solo founders pre-PMF — one channel, lean spend.',
       launch:'Early-stage, 1–2 channels, validating the funnel.',
-      growth:'SMBs spending $50k–$200k/mo with 2–4 active channels.',
+      growth:'SMBs spending $6.5k–$12k/mo with 2–4 active channels.',
       scale:'Mid-market with cross-channel coverage and dedicated PM.',
       ent:'Fortune 500 multi-region rollouts — bespoke scope.'
     };
@@ -126,15 +126,15 @@
       // Spend-driven baseline (the dominant signal)
       let t = 'lite';
       const s = state.spend;
-      if(s >= 1000000) t = 'ent';
-      else if(s >= 200000) t = 'scale';
-      else if(s >= 50000) t = 'growth';
-      else if(s >= 10000) t = 'launch';
-      else if(s >= 2000) t = 'spark';
+      if(s >= 25000) t = 'ent';
+      else if(s >= 12000) t = 'scale';
+      else if(s >= 6500) t = 'growth';
+      else if(s >= 3500) t = 'launch';
+      else if(s >= 1200) t = 'spark';
       // Stage acts as a soft floor — but only when spend reaches that floor's threshold,
       // otherwise selecting $300 with default SMB stage would skip past Lite to Spark.
       const stageFloor = { startup:'lite', smb:'spark', mid:'growth', ent:'scale' };
-      const tierMinSpend = { lite:0, spark:2000, launch:10000, growth:50000, scale:200000, ent:1000000 };
+      const tierMinSpend = { lite:0, spark:1200, launch:3500, growth:6500, scale:12000, ent:25000 };
       const floor = stageFloor[state.stage];
       if(floor && state.spend >= tierMinSpend[floor] && order.indexOf(t) < order.indexOf(floor)) t = floor;
       // Many channels active also bumps up
