@@ -78,7 +78,10 @@
   // ── Plan Builder (plan.html only) ──
   const planRoot = document.getElementById('planBuilder');
   if(planRoot){
-    const state = { stage:'smb', region:'usa', channels:new Set(['google','meta']), spend:10000 };
+    const state = { stage:'smb', region:'usa', channels:new Set(['google','meta']), spend:50000 };
+    // Slider bounds — aligned to tier-card thresholds:
+    // $300 (Lite) → $2k (Spark) → $10k (Launch) → $50k (Growth) → $200k (Scale) → $1M (Enterprise) → $2M
+    const SPEND_MIN = 300, SPEND_MAX = 2000000;
     // Hourly rate ranges by region (USD/hr local agency, midpoint used) — researched 2024-25
     // Sources: Clutch.co 2025 (US/EU/Aus/India), PayScale 2024 (UK), Entasher 2025 (UAE).
     const regionRates = {
@@ -94,16 +97,15 @@
     // CAC and payback by stage — First Page Sage 2024-25 medians
     const stageCAC     = { startup:80,  smb:700,  mid:2500, ent:5500 };
     const stagePayback = { startup:6,   smb:5,    mid:12,   ent:20   };
-    // Exponential slider mapping ($100→$10k in left half, $10k→$100k in right half)
+    // Pure log slider mapping: position 0 → $300, position 1000 → $2M
+    const SPEND_LOG_RATIO = Math.log(SPEND_MAX / SPEND_MIN);
     function posToSpend(p){
-      const t = p / 1000;
-      if(t <= 0.5) return Math.round(100 * Math.pow(100, 2*t));
-      return Math.round(10000 * Math.pow(10, 2*(t-0.5)));
+      const t = Math.max(0, Math.min(1000, +p)) / 1000;
+      return Math.round(SPEND_MIN * Math.exp(t * SPEND_LOG_RATIO));
     }
     function spendToPos(s){
-      s = Math.max(100, Math.min(100000, +s || 100));
-      if(s <= 10000) return Math.round(1000 * Math.log(s/100) / (2*Math.log(100)));
-      return Math.round(1000 * (0.5 + Math.log10(s/10000)/2));
+      s = Math.max(SPEND_MIN, Math.min(SPEND_MAX, +s || SPEND_MIN));
+      return Math.round(1000 * Math.log(s / SPEND_MIN) / SPEND_LOG_RATIO);
     }
     // Saflow fee per recommended tier (added Lite tier for tiny clients)
     const tierFee   = { lite:300,  spark:1500, launch:3500, growth:6500, scale:12000, ent:25000 };
@@ -232,7 +234,7 @@
     }
     if(spendInput){
       spendInput.addEventListener('input', () => {
-        const v = Math.max(100, Math.min(100000, +spendInput.value || 100));
+        const v = Math.max(SPEND_MIN, Math.min(SPEND_MAX, +spendInput.value || SPEND_MIN));
         state.spend = v;
         if(spendSlider) spendSlider.value = spendToPos(v);
         render();

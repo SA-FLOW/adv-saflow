@@ -104,28 +104,28 @@
 
       <!-- Spend -->
       <div class="plan-group">
-        <div class="plan-group-label">Monthly Ad Spend <small>(USD · $100 → $100k · exponential)</small></div>
+        <div class="plan-group-label">Monthly Ad Spend <small>(USD · $300 → $2M · log scale)</small></div>
         <div class="plan-spend-control">
-          <input type="range" class="plan-spend" id="planSpend" min="0" max="1000" step="1" value="500"/>
+          <input type="range" class="plan-spend" id="planSpend" min="0" max="1000" step="1" value="582"/>
           <div class="plan-spend-row">
-            <div class="plan-spend-readout"><span id="planSpendVal">$10,000</span> / mo</div>
+            <div class="plan-spend-readout"><span id="planSpendVal">$50,000</span> / mo</div>
             <div class="plan-spend-input-wrap">
               <span class="plan-spend-prefix">$</span>
-              <input type="number" class="plan-spend-input" id="planSpendInput" min="100" max="100000" step="100" value="10000"/>
+              <input type="number" class="plan-spend-input" id="planSpendInput" min="300" max="2000000" step="100" value="50000"/>
               <span class="plan-spend-suffix">/ mo</span>
             </div>
           </div>
         </div>
         <div class="plan-spend-presets">
-          <button type="button" class="plan-preset" data-spend="100">$100</button>
-          <button type="button" class="plan-preset" data-spend="500">$500</button>
+          <button type="button" class="plan-preset" data-spend="300">$300</button>
           <button type="button" class="plan-preset" data-spend="2000">$2k</button>
           <button type="button" class="plan-preset" data-spend="10000">$10k</button>
-          <button type="button" class="plan-preset" data-spend="25000">$25k</button>
           <button type="button" class="plan-preset" data-spend="50000">$50k</button>
-          <button type="button" class="plan-preset" data-spend="100000">$100k</button>
+          <button type="button" class="plan-preset" data-spend="200000">$200k</button>
+          <button type="button" class="plan-preset" data-spend="1000000">$1M</button>
+          <button type="button" class="plan-preset" data-spend="2000000">$2M</button>
         </div>
-        <div class="plan-group-hint">Slider scales exponentially — $100→$10k on the left half, $10k→$100k on the right. Type any exact amount in the box.</div>
+        <div class="plan-group-hint">Each preset is a tier threshold — $300 Lite, $2k Spark, $10k Launch, $50k Growth, $200k Scale, $1M Enterprise. Type any exact amount in the box.</div>
       </div>
     </div>
 
