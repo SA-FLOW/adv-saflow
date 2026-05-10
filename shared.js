@@ -131,10 +131,12 @@
       else if(s >= 50000) t = 'growth';
       else if(s >= 10000) t = 'launch';
       else if(s >= 2000) t = 'spark';
-      // Stage acts as a soft floor — an Enterprise prospect needs at least Scale-level scope
+      // Stage acts as a soft floor — but only when spend reaches that floor's threshold,
+      // otherwise selecting $300 with default SMB stage would skip past Lite to Spark.
       const stageFloor = { startup:'lite', smb:'spark', mid:'growth', ent:'scale' };
+      const tierMinSpend = { lite:0, spark:2000, launch:10000, growth:50000, scale:200000, ent:1000000 };
       const floor = stageFloor[state.stage];
-      if(floor && order.indexOf(t) < order.indexOf(floor)) t = floor;
+      if(floor && state.spend >= tierMinSpend[floor] && order.indexOf(t) < order.indexOf(floor)) t = floor;
       // Many channels active also bumps up
       const ch = state.channels.size;
       if(ch >= 4 && order.indexOf(t) < order.indexOf('growth')) t = 'growth';
