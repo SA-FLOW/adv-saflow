@@ -320,6 +320,15 @@ body{animation:pgIn .45s ease both}
   .page-hero{padding:7rem 1.2rem 3.5rem}
 }
 
+/* ── CLIENT CASE-STUDY CARDS ── */
+.client-plate{display:grid;place-items:center;height:120px;border-radius:12px;margin-bottom:1.25rem;background:linear-gradient(135deg,var(--bg3),rgba(119,166,247,.08));border:1px solid var(--border);transition:background .3s}
+.client-wordmark{font-family:var(--font-head);font-size:1.75rem;font-weight:800;letter-spacing:-.02em;color:var(--txt);line-height:1}
+.client-wordmark span{color:var(--accent2)}
+.client-meta{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent3);margin-bottom:.5rem}
+.client-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 1.25rem}
+.client-tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.32rem .72rem;border-radius:999px;border:1px solid rgba(0,136,122,.34);background:rgba(0,136,122,.14);color:var(--txt2)}
+.teaser-card:hover .client-plate{background:linear-gradient(135deg,#365e66,rgba(119,166,247,.14))}
+
 /* ── PLAN BUILDER ── */
 .plan-builder{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:2.5rem;margin-top:2.5rem;align-items:start}
 .plan-inputs{display:flex;flex-direction:column;gap:2rem}
