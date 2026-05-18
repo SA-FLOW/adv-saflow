@@ -411,8 +411,8 @@ body{animation:pgIn .45s ease both}
 .faq-item[open] .faq-chev{transform:rotate(45deg)}
 .faq-item p{padding:0 1.4rem 1.2rem;color:var(--txt2);font-size:.92rem;line-height:1.7;font-weight:300}
 
-/* ── 6-COL COUNTRY GRID (plan.html) ── */
-.country-savings-grid.six-col{grid-template-columns:repeat(6,1fr)}
+/* ── 3-COL COUNTRY GRID (plan.html) ── */
+.country-savings-grid.three-col{grid-template-columns:repeat(3,1fr)}
 
 /* ── 6-COL TIER GRID + SPEND PRESETS ── */
 .tier-grid.tier-grid-six{grid-template-columns:repeat(6,1fr)}
@@ -445,7 +445,7 @@ body{animation:pgIn .45s ease both}
   .plan-output{position:static}
   .tier-grid,.tier-grid.tier-grid-six{grid-template-columns:repeat(3,1fr)}
   .tier-card:nth-child(4),.tier-card:nth-child(5),.tier-card:nth-child(6){grid-column:auto}
-  .country-savings-grid.six-col{grid-template-columns:repeat(3,1fr)}
+  .country-savings-grid.three-col{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:768px){
